@@ -316,11 +316,11 @@ cmd_finish() {
 		git_do merge --ff "$BRANCH"
 	else
 		if noflag squash; then
-		    git_do merge --no-ff "$BRANCH"
+		    git_do merge --no-ff --no-edit "$BRANCH"
 		else
-			git_do merge --squash "$BRANCH"
+			git_do merge --squash --no-edit "$BRANCH"
 			git_do commit
-			git_do merge "$BRANCH"
+			git_do merge --no-edit "$BRANCH"
 		fi
 	fi
 
